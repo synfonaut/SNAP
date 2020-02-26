@@ -1,6 +1,6 @@
 # Semantic Nonce Attribute Protocol (SNAP)
 
-`SNAPS are Magic Data Structures turned 21e8 pow checksums`
+`SNAPS are magic data structures used to generate 21e8 proof-of-work hashes`
 
 SNAP offers a flexible data structure for ingesting semantic data into a 21e8 proof-of-work hash. It's composed of:
 
@@ -18,14 +18,19 @@ The Magic Attribute Protocol (MAP) allows flexible key/value data in Bitcoin pro
 
 ## Bitcoin Schema
 
-Bitcoin Schema defines a set of key/values for a specific context.
+Bitcoin Schema defines a set of key/values for a specific context, prefixed by a Bitcom identifier
+
+```
+SNAP | MAP
+...
+```
 
 ### Parent
 
 Parent refers to a 21e8 parent hash derived from a world key. If there is no parent, this hash becomes a world key.
 
 ```
-MAP
+SNAP | MAP
 SET
 parent
 21e80096c21e2de52d741ac27607e251770c0b9f7e644f684cf37173e871820e
@@ -36,7 +41,7 @@ parent
 Namespaces are valuable for derivation paths or generating UUIDs for avoiding hash collisions.
 
 ```
-MAP
+SNAP | MAP
 SET
 namespace
 universe-green-apple
@@ -47,7 +52,7 @@ universe-green-apple
 Nonce is an integer that gets flipped to generate the 21e8 hash
 
 ```
-MAP
+SNAP | MAP
 SET
 nonce
 1221348
@@ -60,7 +65,7 @@ nonce
 Add tags to a proof of work hash.
 
 ```
-MAP
+SNAP | MAP
 ADD
 tags
 bsv
@@ -75,7 +80,7 @@ bitcoin
 Using MAP SELECT can associate data on other elements
 
 ```
-MAP
+SNAP | MAP
 SELECT <txid|21e8>
 ADD
 tags
@@ -88,7 +93,7 @@ bsv
 # Full Example
 
 ```
-MAP
+SNAP | MAP
 SET
 parent
 21e80b8c4faf426f31db9bc7c03359a6e79b3faabc015b45af748dbae4353323
