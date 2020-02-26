@@ -4,9 +4,9 @@
 
 `Generate proof-of-work hashes with semantic meaning`
 
-SNAPS are magic data structures, semantic data with a nonce that is used to generate 21e8 proof-of-work hashes.
-
 This protocol offers a flexible data structure for ingesting semantic data into a 21e8 proof-of-work hash. It's based on the [Magic Attribute Protocol](https://github.com/rohenaz/MAP/tree/v2) and [Bitcoin Schema](https://github.com/synfonaut/MAP/blob/v2/README.md#map-schema).
+
+SNAPS are magic data structures, semantic data with a nonce that's used to generate 21e8 proof-of-work hashes.
 
 1. SNAP Bitcoin Schema `(b843b7c73549a6e24b073777b936051f314804e43ef4a243f49407cc562ac9dd)`
    1. nonce (Integer)
