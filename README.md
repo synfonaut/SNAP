@@ -8,15 +8,17 @@ This protocol offers a flexible data structure for ingesting semantic data into 
 
 SNAPS are magic data structures, semantic data with a nonce that's used to generate 21e8 proof-of-work hashes.
 
-1. SNAP Bitcoin Schema `(b843b7c73549a6e24b073777b936051f314804e43ef4a243f49407cc562ac9dd)`
-   1. nonce (Integer)
-   2. Optional: parent (Hash)
-   3. Optional: namespace (String)
-   4. Extension: tags (List)
+The SNAP Bitcoin Schema is defined on-chain at `(b843b7c73549a6e24b073777b936051f314804e43ef4a243f49407cc562ac9dd)`. It has the following fields
+1. nonce (Integer)
+2. Optional: parent (Hash)
+3. Optional: namespace (String)
+4. Extension: tags (List)
 
 ## Bitcoin Schema
 
-SNAP is based on [Bitcoin Schema](https://github.com/synfonaut/MAP/blob/v2/README.md#map-schema) and the [Magic Attribute Protocol](https://github.com/rohenaz/MAP/tree/v2) (MAP). MAP allows flexible key/value data in Bitcoin protocols. Bitcoin Schema allows semantic layers on top.
+SNAP is based on [Bitcoin Schema](https://github.com/synfonaut/MAP/blob/v2/README.md#map-schema) and the [Magic Attribute Protocol](https://github.com/rohenaz/MAP/tree/v2) (MAP).
+
+MAP allows flexible key/value data in Bitcoin protocols. Bitcoin Schema allows semantic layers and meaning on top.
 
 ## Bitcoin Schema
 
