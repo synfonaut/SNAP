@@ -2,15 +2,17 @@
 
 ![Semantic Nonce Attribute Protocol (SNAP)](https://media.giphy.com/media/13sJFV64YRIc1y/giphy.gif)
 
-`SNAPS are just Magic Data Structures. Magic data structures are data structures with a nonce used to generate proof-of-work hashes`
+`Generate proof-of-work hashes with semantic meaning`
 
-SNAP offers a flexible data structure for ingesting semantic data into a 21e8 proof-of-work hash. It's based on the [Magic Attribute Protocol](https://github.com/rohenaz/MAP/tree/v2) and [Bitcoin Schema](https://github.com/synfonaut/MAP/blob/v2/README.md#map-schema).
+SNAPS are magic data structures, semantic data with a nonce that is used to generate 21e8 proof-of-work hashes.
+
+This protocol offers a flexible data structure for ingesting semantic data into a 21e8 proof-of-work hash. It's based on the [Magic Attribute Protocol](https://github.com/rohenaz/MAP/tree/v2) and [Bitcoin Schema](https://github.com/synfonaut/MAP/blob/v2/README.md#map-schema).
 
 1. SNAP Bitcoin Schema `(b843b7c73549a6e24b073777b936051f314804e43ef4a243f49407cc562ac9dd)`
    1. nonce (Integer)
    2. Optional: parent (Hash)
    3. Optional: namespace (String)
-   4. Extension: tags (List of tags)
+   4. Extension: tags (List)
 
 ## Bitcoin Schema
 
@@ -18,10 +20,10 @@ SNAP is based on [Bitcoin Schema](https://github.com/synfonaut/MAP/blob/v2/READM
 
 ## Bitcoin Schema
 
-defines a set of key/values for a specific context, prefixed by a Bitcom identifier
+Bitcoin Schema defines a set of key/values for a specific context, identified by a txid.
 
 ```json
-MAP SCHEMA <SNAP> | MAP SET ...
+MAP SCHEMA <SNAP>
 ```
 
 ### Parent
@@ -37,7 +39,7 @@ parent
 
 ### Namespace
 
-Namespaces are valuable for derivation paths or generating UUIDs for avoiding hash collisions.
+Namespaces are valuable for specific derivation paths or generating UUIDs to avoid hash collisions.
 
 ```json
 MAP SCHEMA <SNAP> | MAP
@@ -48,7 +50,7 @@ universe-green-apple
 
 ### Nonce
 
-Nonce is an integer that gets flipped to generate the 21e8 hash
+Nonce is an integer that gets flipped to generate the 21e8 hash with appropriate proof-of-work.
 
 ```json
 MAP SCHEMA <SNAP> | MAP
@@ -57,7 +59,18 @@ nonce
 1221348
 ```
 
+## SELECT
 
+Using MAP SELECT can associate data on other hashes
+
+```json
+MAP SCHEMA <SNAP> |
+MAP SELECT <txid|21e8>
+ADD
+tags
+bitcoin
+bsv
+```
 
 ## Extension: tags
 
@@ -71,23 +84,6 @@ bsv
 bitcoinsv
 bitcoin
 ```
-
-
-
-## Extension: SELECT
-
-Using MAP SELECT can associate data on other elements
-
-```json
-MAP SCHEMA <SNAP> |
-MAP SELECT <txid|21e8>
-ADD
-tags
-bitcoin
-bsv
-```
-
-
 
 # Full Example
 
