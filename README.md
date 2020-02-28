@@ -67,8 +67,8 @@ Using MAP SELECT can associate data on other hashes
 
 ```json
 MAP SCHEMA <SNAP> |
-MAP SELECT <txid|21e8>
-ADD
+MAP SELECT <txid|21e8> |
+MAP ADD
 tags
 bitcoin
 bsv
@@ -79,8 +79,8 @@ bsv
 Add tags to a proof of work hash.
 
 ```json
-MAP SCHEMA <SNAP> | MAP
-ADD
+MAP SCHEMA <SNAP> | 
+MAP ADD
 tags
 bsv
 bitcoinsv
@@ -90,15 +90,16 @@ bitcoin
 # Full Example
 
 ```json
-MAP SCHEMA <SNAP> | MAP
-SET
+MAP SCHEMA <SNAP> |
+MAP SET
 parent
 21e80b8c4faf426f31db9bc7c03359a6e79b3faabc015b45af748dbae4353323
 namespace
 123-123-123-1234
 nonce
 1070434
-ADD
+|
+MAP ADD
 tags
 bsv
 bitcoinsv
